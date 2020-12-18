@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen1</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ["año", "poblacion", { role: "style" }],
+                ["2017", 14252, "color:rgb(0,255,0); opacity:0.5"],
+                ["2018", 23360, "color:rgb(0,255,0);  opacity:0.7"],
+                ["2019", 40421, "color:rgb(0,255,0);  opacity:0.7"],
+                ["2020", 43500, "color:rgb(0,255,0);  opacity:0.9"]
+            ]);
+
+            var view = new google.visualization.DataView(data);
+            view.setColumns([0, 1,
+                {
+                    calc: "stringify",
+                    sourceColumn: 1,
+                    type: "string",
+                    role: "annotation"
+                },
+                2]);
+
+            var options = {
+                title: "Evolución de la población de Navalcarnero",
+                width: 1470,
+                height: 700,
+                backgroundColor: 'blue',
+                bar: { groupWidth: "95%" },
+                legend: { position: "none" },
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+            chart.draw(view, options);
+    }
+    </script>
+</head>
+
+<body>
+    
+    <div id="columnchart_values"></div>
+    <div id="div"></div>
+    <script src="index.js"></script>
+</body>
+
+</html>
