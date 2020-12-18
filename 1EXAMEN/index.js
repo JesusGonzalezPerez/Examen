@@ -48,6 +48,7 @@ function ejercicio3(arrayNum) {
 EJERCICIO 4
 =================================*/
 function ejercicio4(filas, columnas, color, objeto) {
+    var array=[];
     var tabla = document.createElement("table");
 
     for (var i = 0; i < filas; i++) {
@@ -74,7 +75,7 @@ function ejercicio4(filas, columnas, color, objeto) {
     }
 }
 
-ejercicio4(4, 4, "red", document.getElementById("div"));
+// ejercicio4(4, 4, "red", document.getElementById("div"));
 
 
 
